@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshan Tara School | Bachal Goth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-blue: #00008B;
+            --navy: #0a062d;
+            --gold: #FFD700;
+            --white: #ffffff;
+            --bg-color: #f8faff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body { background-color: var(--bg-color); overflow-x: hidden; }
+
+        /* --- Header --- */
+        header {
+            background: var(--navy);
+            padding: 10px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img {
+            height: 50px; width: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            background: white;
+        }
+        .logo-area h2 { color: white; font-size: 1.3rem; font-weight: 700; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
+        /* --- Hero --- */
+        /* --- Hero --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 139, 0.65), rgba(0, 0, 0, 0.85)), 
+                url('https://docs.google.com/uc?export=view&id=1AKL5GQSKlCgw7S9Qsch02NwUTElgPhv3');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 5%;
+}
+
+
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; margin: 20px 0 35px; opacity: 0.9; }
+
+        .cta-btn {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .cta-btn:hover { transform: scale(1.1); background: white; }
+
+        /* --- Location Section (Split 50/50) --- */
+        .location-section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .loc-info {
+            flex: 1; min-width: 300px;
+            padding: 60px 40px;
+            background: var(--dark-blue);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .loc-info h2 { color: var(--gold); font-size: 2.2rem; margin-bottom: 20px; }
+        .loc-info p { line-height: 1.7; opacity: 0.9; font-size: 1rem; }
+
+        .loc-map { flex: 1; min-width: 300px; height: 450px; }
+        .loc-map iframe { width: 100%; height: 100%; border: 0; }
+
+        /* --- Stats --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            background: var(--navy);
+            padding: 50px 10%;
+            text-align: center;
+            color: white;
+        }
+        .stat-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
+        .stat-card h2 { font-size: 2.8rem; margin: 5px 0; }
+
+        /* --- Faculty Grid (6 Subjects) --- */
+        .faculty-sec { padding: 80px 10%; text-align: center; }
+        .faculty-sec h2 { font-size: 2.5rem; color: var(--navy); margin-bottom: 50px; }
+        
+        .teacher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .t-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border-bottom: 5px solid var(--gold);
+        }
+        .t-card:hover { transform: translateY(-10px); background: var(--navy); color: white; }
+        .t-card i { font-size: 3rem; color: var(--dark-blue); margin-bottom: 20px; }
+        .t-card:hover i { color: var(--gold); }
+
+        /* --- Footer --- */
+        footer { background: var(--navy); color: white; padding: 70px 10% 30px; }
+        .footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
+        .f-box { flex: 1; min-width: 280px; }
+        .f-box h3 { color: var(--gold); margin-bottom: 20px; font-size: 1.4rem; }
+
+        .btn-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .action-btn {
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .wa { background: #25D366; }
+        .mail { background: #EA4335; }
+        .action-btn:hover { transform: translateX(8px); filter: brightness(1.1); }
+
+        @media (max-width: 768px) {
+            .location-section { width: 95%; margin: 30px auto; }
+            .loc-info { padding: 40px 25px; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgy2Xpf19gYOM1iGKUuIBj_jbfsuo_wVIp_FS-_HZG_Q&s&ec=121643124" alt="Logo">
+            <h2>RTS BG</h2>
+        </div>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#location">LOCATION</a>
+            <a href="#faculty">TEACHERS</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 data-aos="fade-down" data-aos-duration="600">Roshan Tara School</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Inspiring Excellence in Bachal Goth, Malir, Karachi.</p>
+        <a href="#contact" class="cta-btn" data-aos="zoom-in" data-aos-delay="400">Apply for Admission 2026</a>
+    </section>
+
+    <section class="location-section" id="location" data-aos="fade-up">
+        <div class="loc-info">
+            <h2>Our Campus</h2>
+            <p><strong>Address:</strong> Bachal Goth, Near Malir Cantonment, Malir, Karachi, Pakistan.</p>
+            <p style="margin-top:15px;">Quality education is now at your doorstep. Visit us for a campus tour and meet our team.</p>
+        </div>
+        <div class="loc-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.3242636287!2d67.22302901111048!3d24.904176177874052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3377fc98c9f1f%3A0xb49109c3e9fcd036!2sRoshan%20Tara%20School%20Bachal%20Goth!5e0!3m2!1sen!2s!4v1714584000000!5m2!1sen!2sf" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-check-circle"></i>
+            <h2 id="rate">0%</h2>
+            <p>Pass Rate</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h2 id="students">0+</h2>
+            <p>Students</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h2 id="teachers">0+</h2>
+            <p>Expert Teachers</p>
+        </div>
+    </section>
+
+    <section class="faculty-sec" id="faculty">
+        <h2 data-aos="fade-down">Our Specialized Faculty</h2>
+        <div class="teacher-grid">
+            <div class="t-card" data-aos="fade-up">
+                <i class="fas fa-dna"></i>
+                <h3>Biology</h3>
+                <p>Miss Zeenat</p>
+            </div>
+            <div class="t-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-desktop"></i>
+                <h3>Computer</h3>
+                <p>Syed Rafay Kazmi</p>
+            </div>
+            <div class="t-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-atom"></i>
+                <h3>Physics</h3>
+                <p>Miss Shakeela Soomro</p>
+            </div>
+            <div class="t-card" data-aos="fade-up">
+                <i class="fas fa-calculator"></i>
+                <h3>Mathematics</h3>
+                <p>Miss Pervaiza</p>
+            </div>
+            <div class="t-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-book"></i>
+                <h3>English</h3>
+                <p>Miss Zeenat</p>
+            </div>
+            <div class="t-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-flask"></i>
+                <h3>Chemistry</h3>
+                <p>Syed Feroz</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-flex">
+            <div class="f-box">
+                <h3>Roshan Tara School</h3>
+                <p>Since its inception, RTS has been dedicated to character building and academic excellence for every child.</p>
+            </div>
+            <div class="f-box">
+                <h3>Get In Touch</h3>
+                <div class="btn-stack">
+                    <a href="https://wa.me/923453023673" class="action-btn wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                    <a href="mailto:rafayshahkazm8@gmail.com" class="action-btn mail">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; opacity: 0.6;">
+            &copy; 2026 Roshan Tara School Bachal Goth. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        function animateCounter(id, target, suffix) {
+            let count = 0;
+            let element = document.getElementById(id);
+            let speed = target / 50;
+            let timer = setInterval(() => {
+                count += speed;
+                if (count >= target) {
+                    element.innerText = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.innerText = Math.floor(count) + suffix;
+                }
+            }, 30);
+        }
+
+        window.onload = () => {
+            animateCounter("rate", 90, "%");
+            animateCounter("students", 500, "+");
+            animateCounter("teachers", 20, "+");
+        };
+    </script>
+</body>
+</html>
