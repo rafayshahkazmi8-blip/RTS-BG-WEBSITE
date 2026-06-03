@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Roshan Tara School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --dark-blue:#00008B; --navy:#0a062d; --gold:#FFD700; --bg:#f8faff; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+        body { background:var(--bg); overflow-x:hidden; }
+
+        header { background:var(--navy); padding:10px 8%; display:flex; justify-content:space-between; align-items:center; position:fixed; width:100%; top:0; z-index:2000; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+        .logo-area { display:flex; align-items:center; gap:12px; }
+        .logo-area img { height:50px; width:50px; border-radius:50%; border:2px solid var(--gold); background:white; }
+        .logo-area h2 { color:white; font-size:1.3rem; font-weight:700; }
+        nav a { color:white; text-decoration:none; margin-left:20px; font-size:0.85rem; font-weight:600; transition:0.3s; }
+        nav a:hover, nav a.active { color:var(--gold); }
+
+        .page-hero { height:38vh; background:linear-gradient(135deg,var(--navy) 0%,var(--dark-blue) 60%,#1a0066 100%); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:white; padding-top:80px; }
+        .page-hero h1 { font-size:clamp(2rem,6vw,3.5rem); font-weight:800; }
+        .page-hero h1 span { color:var(--gold); }
+        .page-hero p { opacity:0.8; margin-top:10px; }
+        .breadcrumb { display:flex; align-items:center; gap:8px; margin-top:12px; font-size:0.85rem; opacity:0.7; }
+        .breadcrumb a { color:var(--gold); text-decoration:none; }
+
+        .contact-section { padding:80px 8%; display:grid; grid-template-columns:1fr 1.6fr; gap:50px; max-width:1200px; margin:0 auto; }
+
+        .info-col { display:flex; flex-direction:column; gap:20px; }
+        .info-card { background:white; border-radius:16px; padding:28px 24px; box-shadow:0 8px 25px rgba(0,0,0,0.07); display:flex; align-items:flex-start; gap:18px; transition:0.3s; border-left:4px solid var(--gold); }
+        .info-card:hover { transform:translateX(6px); }
+        .ic-icon { width:52px; height:52px; background:var(--navy); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .ic-icon i { color:var(--gold); font-size:1.3rem; }
+        .ic-text h4 { font-size:0.78rem; text-transform:uppercase; letter-spacing:1px; color:#888; margin-bottom:5px; }
+        .ic-text p, .ic-text a { color:var(--navy); font-weight:600; font-size:0.95rem; text-decoration:none; line-height:1.5; }
+        .social-row { background:var(--navy); border-radius:16px; padding:28px 24px; }
+        .social-row h4 { color:var(--gold); margin-bottom:15px; }
+        .social-btns { display:flex; gap:12px; flex-wrap:wrap; }
+        .s-btn { padding:10px 20px; border-radius:8px; text-decoration:none; color:white; font-size:0.85rem; font-weight:600; display:flex; align-items:center; gap:8px; transition:0.3s; }
+        .s-btn.wa { background:#25D366; } .s-btn.mail { background:#EA4335; }
+        .s-btn:hover { transform:translateY(-3px); filter:brightness(1.15); }
+
+        .form-card { background:white; border-radius:20px; padding:50px 45px; box-shadow:0 15px 50px rgba(0,0,0,0.09); position:relative; overflow:hidden; }
+        .form-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--dark-blue),var(--gold)); }
+        .form-card h2 { font-size:1.8rem; color:var(--navy); margin-bottom:8px; }
+        .form-card .sub { color:#666; font-size:0.9rem; margin-bottom:28px; }
+
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+        .fg { display:flex; flex-direction:column; gap:7px; margin-bottom:16px; }
+        .fg label { font-size:0.78rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:0.8px; }
+        .fg input, .fg select, .fg textarea { border:2px solid #e8ecf5; border-radius:10px; padding:13px 16px; font-size:0.9rem; font-family:'Poppins',sans-serif; color:var(--navy); background:#f8faff; transition:0.3s; outline:none; width:100%; }
+        .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--dark-blue); background:white; box-shadow:0 0 0 4px rgba(0,0,139,0.06); }
+        .fg textarea { resize:vertical; min-height:120px; }
+
+        .submit-btn { width:100%; background:var(--navy); color:white; border:none; padding:16px; border-radius:12px; font-size:1rem; font-weight:700; font-family:'Poppins',sans-serif; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:0.3s; }
+        .submit-btn:hover:not(:disabled) { background:var(--dark-blue); transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,0,139,0.3); }
+        .submit-btn:disabled { background:#9999bb; cursor:not-allowed; }
+        .spinner { display:none; width:20px; height:20px; border:3px solid rgba(255,255,255,0.3); border-top-color:white; border-radius:50%; animation:spin 0.8s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+
+        .alert { border-radius:10px; padding:13px 16px; font-size:0.88rem; display:none; align-items:center; gap:10px; margin-bottom:16px; }
+        .alert.show { display:flex; }
+        .alert.err { background:#fff0f0; border:2px solid #EA4335; color:#c0392b; }
+        .alert.ok  { background:#f0fff4; border:2px solid #1db954; color:#145a32; }
+
+        .success-screen { display:none; flex-direction:column; align-items:center; text-align:center; padding:40px 20px; }
+        .success-screen.show { display:flex; }
+        .tick { width:80px; height:80px; background:#1db954; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:white; margin-bottom:20px; animation:popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275); }
+        @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+        .success-screen h3 { font-size:1.6rem; color:var(--navy); margin-bottom:10px; }
+        .success-screen p { color:#666; line-height:1.6; }
+        .back-btn { margin-top:25px; padding:12px 30px; background:var(--navy); color:white; border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:700; cursor:pointer; transition:0.3s; }
+        .back-btn:hover { background:var(--dark-blue); }
+
+        .map-strip { width:100%; height:350px; border-top:4px solid var(--gold); }
+        .map-strip iframe { width:100%; height:100%; border:0; display:block; }
+        footer { background:var(--navy); color:white; padding:40px 10%; text-align:center; }
+        footer p { opacity:0.6; font-size:0.8rem; }
+
+        @media(max-width:900px) { .contact-section{grid-template-columns:1fr;padding:50px 5%;} .form-card{padding:35px 25px;} .form-row{grid-template-columns:1fr;} nav{display:none;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgy2Xpf19gYOM1iGKUuIBj_jbfsuo_wVIp_FS-_HZG_Q&s&ec=121643124" alt="Logo">
+        <h2>RTS BG</h2>
+    </div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="index.html#location">LOCATION</a>
+        <a href="index.html#faculty">TEACHERS</a>
+        <a href="#" class="active">CONTACT</a>
+    </nav>
+</header>
+
+<div class="page-hero">
+    <h1>Contact <span>Us</span></h1>
+    <p>We'd love to hear from you. Reach out anytime.</p>
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right" style="font-size:0.7rem;"></i>
+        <span>Contact</span>
+    </div>
+</div>
+
+<section class="contact-section">
+    <div class="info-col">
+        <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="ic-text"><h4>Address</h4><p>Bachal Goth, Near Malir Cantonment<br>Malir, Karachi, Pakistan</p></div>
+        </div>
+        <div class="info-card">
+            <div class="ic-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="ic-text"><h4>WhatsApp</h4><a href="https://wa.me/923453023673">+92 345 3023673</a></div>
+        </div>
+        <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-envelope"></i></div>
+            <div class="ic-text"><h4>Email</h4><a href="mailto:rafayshahkazmiofficial@gmail.com">rafayshahkazmiofficial@gmail.com</a></div>
+        </div>
+        <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-clock"></i></div>
+            <div class="ic-text"><h4>School Hours</h4><p>Mon – Sat: 7:30 AM – 2:00 PM<br>Sunday: Closed</p></div>
+        </div>
+        <div class="social-row">
+            <h4><i class="fas fa-share-alt"></i> &nbsp;Quick Connect</h4>
+            <div class="social-btns">
+                <a href="https://wa.me/923453023673" class="s-btn wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:rafayshahkazmiofficial@gmail.com" class="s-btn mail"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <div id="formView">
+            <h2>Send Us a Message</h2>
+            <p class="sub">Your message will be sent directly to our Gmail inbox.</p>
+
+            <div class="alert err" id="errAlert"><i class="fas fa-exclamation-circle"></i><span id="errTxt"></span></div>
+
+            <div class="form-row">
+                <div class="fg"><label>First Name *</label><input type="text" id="fname" placeholder="Ahmed"></div>
+                <div class="fg"><label>Last Name</label><input type="text" id="lname" placeholder="Khan"></div>
+            </div>
+            <div class="fg"><label>Your Email *</label><input type="email" id="femail" placeholder="your@email.com"></div>
+            <div class="fg"><label>Phone</label><input type="tel" id="fphone" placeholder="+92 3XX XXXXXXX"></div>
+            <div class="fg">
+                <label>Subject</label>
+                <select id="fsubject">
+                    <option>Admission Inquiry 2026</option>
+                    <option>Fee Structure</option>
+                    <option>Teacher Information</option>
+                    <option>General Inquiry</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="fg"><label>Message *</label><textarea id="fmsg" placeholder="Write your message here..."></textarea></div>
+
+            <button class="submit-btn" id="sendBtn" onclick="sendMsg()">
+                <span id="btnTxt">Send Message</span>
+                <i class="fas fa-paper-plane" id="btnIcon"></i>
+                <div class="spinner" id="spinner"></div>
+            </button>
+        </div>
+
+        <div class="success-screen" id="successView">
+            <div class="tick"><i class="fas fa-check"></i></div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for contacting us.<br>We will reply as soon as possible.</p>
+            <button class="back-btn" onclick="resetForm()">Send Another Message</button>
+        </div>
+    </div>
+</section>
+
+<div class="map-strip">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.3242636287!2d67.22302901111048!3d24.904176177874052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3377fc98c9f1f%3A0xb49109c3e9fcd036!2sRoshan%20Tara%20School%20Bachal%20Goth!5e0!3m2!1sen!2s!4v1714584000000!5m2!1sen!2sf" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<footer><p>&copy; 2026 Roshan Tara School Bachal Goth. All Rights Reserved.</p></footer>
+
+<script>
+  // ═══════════════════════════════════════════════════════
+  //  Web3Forms — APNI ACCESS KEY YAHAN DALO
+  //  1. https://web3forms.com  pe jao
+  //  2. Apna email dalo: rafayshahkazmiofficial@gmail.com
+  //  3. "Create Access Key" click karo
+  //  4. Gmail me ayi email open karo → key copy karo
+  //  5. Neeche YOUR_ACCESS_KEY ki jagah paste karo
+  // ═══════════════════════════════════════════════════════
+  const ACCESS_KEY = "YOUR_ACCESS_KEY";
+
+  function err(msg) {
+    document.getElementById('errTxt').textContent = msg;
+    const a = document.getElementById('errAlert');
+    a.classList.add('show');
+    setTimeout(() => a.classList.remove('show'), 4000);
+  }
+
+  async function sendMsg() {
+    const name  = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const subj  = document.getElementById('fsubject').value;
+    const msg   = document.getElementById('fmsg').value.trim();
+
+    if (!name)  return err('Please enter your first name.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return err('Please enter a valid email address.');
+    if (!msg)   return err('Please write your message.');
+
+    const btn = document.getElementById('sendBtn');
+    btn.disabled = true;
+    document.getElementById('btnTxt').style.display = 'none';
+    document.getElementById('btnIcon').style.display = 'none';
+    document.getElementById('spinner').style.display = 'block';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `[RTS Contact] ${subj} — ${name}`,
+          from_name: name + ' ' + lname,
+          email: email,
+          phone: phone || 'Not provided',
+          topic: subj,
+          message: msg
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('formView').style.display = 'none';
+        document.getElementById('successView').classList.add('show');
+      } else {
+        err(data.message || 'Something went wrong. Please try WhatsApp.');
+      }
+    } catch(e) {
+      err('Network error. Please check your internet connection.');
+    } finally {
+      btn.disabled = false;
+      document.getElementById('btnTxt').style.display = 'inline';
+      document.getElementById('btnIcon').style.display = 'inline';
+      document.getElementById('spinner').style.display = 'none';
+    }
+  }
+
+  function resetForm() {
+    document.getElementById('formView').style.display = 'block';
+    document.getElementById('successView').classList.remove('show');
+    ['fname','lname','femail','fphone','fmsg'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('fsubject').selectedIndex = 0;
+  }
+</script>
+</body>
+</html>
